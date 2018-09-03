@@ -9,7 +9,7 @@ def my_refresh(first_time = False):
     now = datetime.datetime.now()
     my_hands(first_time, float(now.hour), float(now.minute), float(now.second))
     if not first_time:
-        secondturtle.screen.ontimer(my_refresh, 250)
+        secondturtle.screen.ontimer(my_refresh, 100)
 
 def my_circle():
     r = 250
@@ -37,7 +37,7 @@ def my_hands(first_time, hour, minute, second):
             my_hourhand(first_time, hour, minute)
             my_minutehand(first_time, minute)
         my_secondhand(first_time, second)
-    last_second == second
+    last_second = second
 
 def my_hourhand(first_time, hour, minute):
     theta = math.pi / 2.0 + (12 - hour) * math.pi / 6.0 - ((minute) * 2 * math.pi / (12.0 * 60))
@@ -96,9 +96,9 @@ secondturtle.hideturtle()
 my_circle()
 my_numbers()
 
-my_refresh(True)
-
 last_second = -1
+
+my_refresh(True)
 
 secondturtle.screen.ontimer(my_refresh, 250)
 
